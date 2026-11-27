@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rohan Efendi Gunawan - Personal Website</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+
+:root{
+--bg:#edf5ff;
+--card:#fff;
+--text:#10233f;
+--muted:#64748b;
+--blue:#087cf0;
+}
+
+body{
+font-family:'Segoe UI',Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:.4s;
+overflow-x:hidden;
+}
+
+body.dark{
+--bg:#071426;
+--card:#10243d;
+--text:#f1f5f9;
+--muted:#a7b8ce;
+}
+
+nav{
+position:sticky;top:0;z-index:100;
+background:rgba(7,35,72,.95);
+padding:16px 6%;
+display:flex;justify-content:space-between;
+align-items:center;color:white;
+backdrop-filter:blur(15px);
+}
+
+.logo{font-weight:900;color:#62caff;font-size:19px}
+
+.nav-links{display:flex;gap:18px;align-items:center}
+
+.nav-links a{
+color:white;text-decoration:none;font-size:13px;
+}
+
+.mode{
+background:transparent;border:1px solid #62caff;
+color:white;padding:8px 12px;border-radius:20px;
+cursor:pointer;
+}
+
+.hero{
+min-height:620px;padding:70px 20px;
+display:flex;flex-direction:column;
+align-items:center;justify-content:center;
+text-align:center;color:white;
+background:radial-gradient(circle at top,#168de9,transparent 50%),
+linear-gradient(135deg,#061b3c,#0755a9,#03142c);
+}
+
+.profile{
+width:200px;height:200px;
+border-radius:50%;object-fit:cover;
+border:6px solid #62caff;
+box-shadow:0 0 35px #00aaff;
+animation:float 3s infinite ease-in-out;
+}
+
+.hero h1{
+font-size:clamp(27px,6vw,46px);
+margin-top:28px;letter-spacing:2px;
+}
+
+.hero p{margin-top:12px;color:#c5e8ff}
+
+.hero-btn{
+display:inline-block;margin-top:28px;
+background:#00aaff;color:white;
+padding:13px 28px;border-radius:30px;
+text-decoration:none;font-weight:bold;
+}
+
+.container{max-width:1050px;margin:auto;padding:25px 18px}
+
+.section{
+background:var(--card);padding:28px;
+border-radius:22px;margin:25px 0;
+box-shadow:0 8px 35px rgba(0,60,130,.08);
+opacity:0;transform:translateY(35px);
+transition:.7s;
+}
+
+.section.show{opacity:1;transform:translateY(0)}
+
+.section h2{
+color:var(--blue);margin-bottom:22px;
+border-bottom:2px solid #168cff;padding-bottom:12px;
+}
+
+.biodata{
+display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+
+.item{background:var(--bg);padding:15px;border-radius:12px}
+
+.item small{display:block;color:var(--muted);margin-bottom:6px}
+
+.about{line-height:1.9;color:var(--muted)}
+
+.timeline{border-left:3px solid var(--blue);padding-left:25px;margin-left:8px}
+
+.timeline-item{position:relative;padding-bottom:27px}
+
+.timeline-item:before{
+content:"";position:absolute;left:-33px;top:5px;
+width:13px;height:13px;border-radius:50%;
+background:#00aaff;box-shadow:0 0 12px #00aaff;
+}
+
+.timeline-item p{color:var(--muted);margin-top:7px}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+.gallery img{
+width:100%;height:210px;object-fit:cover;
+border-radius:15px;transition:.4s;
+}
+
+.gallery img:hover{transform:scale(1.04)}
+
+.contact{text-align:center}
+
+.contact p{color:var(--muted);margin-bottom:20px}
+
+.wa{
+display:inline-block;background:#16b85a;color:white;
+padding:14px 30px;border-radius:30px;
+text-decoration:none;font-weight:bold;
+}
+
+.music{
+position:fixed;bottom:20px;right:20px;z-index:200;
+border:none;border-radius:30px;padding:14px 18px;
+color:white;background:#087cf0;cursor:pointer;
+}
+
+footer{
+text-align:center;background:#061b3c;
+color:#b9dfff;padding:30px;margin-top:35px;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-12px)}
+}
+
+@media(max-width:650px){
+.nav-links{gap:9px}
+.nav-links a{font-size:11px}
+.logo{font-size:14px}
+.biodata{grid-template-columns:1fr}
+.gallery{grid-template-columns:1fr 1fr}
+.gallery img{height:155px}
+.section{padding:21px}
+.hero{min-height:550px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">ROHAN.</div>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#biodata">Biodata</a>
+<a href="#galeri">Galeri</a>
+<button class="mode" onclick="darkMode()">🌙</button>
+</div>
+</nav>
+
+<!-- HALAMAN UTAMA -->
+<section class="hero" id="home">
+
+<img src="foto-profil.jpg" class="profile" alt="Foto Rohan">
+
+<h1>ROHAN EFENDI GUNAWAN</h1>
+<p>Welcome To My Personal Website</p>
+<p>Personal Profile | My Journey | My Story</p>
+
+<a href="#biodata" class="hero-btn">Lihat Biodata Saya ↓</a>
+
+</section>
+
+<div class="container">
+
+<!-- BIODATA -->
+<section class="section" id="biodata">
+<h2>👤 Biodata Pribadi</h2>
+
+<div class="biodata">
+
+<div class="item">
+<small>Nama Lengkap</small>
+<strong>Rohan Efendi Gunawan</strong>
+</div>
+
+<div class="item">
+<small>Nama Panggilan</small>
+<strong>Rohan</strong>
+</div>
+
+<div class="item">
+<small>Tempat Lahir</small>
+<strong>Tasikmalaya</strong>
+</div>
+
+<div class="item">
+<small>Tanggal Lahir</small>
+<strong>25 Juli 2008</strong>
+</div>
+
+<div class="item">
+<small>Jenis Kelamin</small>
+<strong>Laki-laki</strong>
+</div>
+
+<div class="item">
+<small>Alamat</small>
+<strong>Cihideung, Kelurahan Tuguraja, Tasikmalaya</strong>
+</div>
+
+<div class="item">
+<small>Kewarganegaraan</small>
+<strong>Indonesia</strong>
+</div>
+
+<div class="item">
+<small>Pendidikan</small>
+<strong>SMK Artanita</strong>
+</div>
+
+</div>
+</section>
+
+<!-- TENTANG SAYA -->
+<section class="section">
+<h2>✨ Tentang Saya</h2>
+
+<p class="about">
+Halo! Perkenalkan, nama saya Rohan Efendi Gunawan.
+Saya berasal dari Tasikmalaya.
+Saya adalah seseorang yang memiliki semangat
+untuk belajar, mencoba hal baru, dan terus
+mengembangkan kemampuan diri.
+
+Website ini merupakan website pribadi saya
+yang berisi biodata, riwayat pendidikan,
+dan galeri foto.
+<br><br>
+Terus melangkah, terus belajar,
+dan jadilah versi terbaik dari diri sendiri.
+</p>
+</section>
+
+<!-- PENDIDIKAN -->
+<section class="section">
+<h2>🎓 Riwayat Pendidikan</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>SD Negeri Nagarawangi 3</h3>
+<p>Sekolah Dasar</p>
+</div>
+
+<div class="timeline-item">
+<h3>MTs Assurur</h3>
+<p>Madrasah Tsanawiyah</p>
+</div>
+
+<div class="timeline-item">
+<h3>SMK Artanita</h3>
+<p>Sekolah Menengah Kejuruan</p>
+</div>
+
+</div>
+</section>
+
+<!-- HOBI -->
+<section class="section">
+<h2>❤️ Hobi & Kesukaan</h2>
+
+<div class="biodata">
+<div class="item">🏍️ Otomotif</div>
+<div class="item">🎵 Musik</div>
+<div class="item">📷 Fotografi</div>
+<div class="item">🎮 Gaming</div>
+</div>
+</section>
+
+<!-- GALERI -->
+<section class="section" id="galeri">
+<h2>📸 Galeri Foto Saya</h2>
+
+<div class="gallery">
+<img src="foto1.jpg" alt="Galeri 1">
+<img src="foto2.jpg" alt="Galeri 2">
+<img src="foto3.jpg" alt="Galeri 3">
+<img src="foto4.jpg" alt="Galeri 4">
+<img src="foto5.jpg" alt="Galeri 5">
+<img src="foto6.jpg" alt="Galeri 6">
+</div>
+</section>
+
+<!-- KONTAK -->
+<section class="section contact">
+<h2>📞 Hubungi Saya</h2>
+
+<p>Terima kasih sudah mengunjungi website pribadi saya.</p>
+
+<a class="wa"
+href="https://wa.me/6282118169050"
+target="_blank">
+💬 WhatsApp Rohan
+</a>
+</section>
+
+</div>
+
+<footer>
+<h3>ROHAN EFENDI GUNAWAN</h3>
+<p>Personal Website © 2026</p>
+<p>Made with ❤️ in Tasikmalaya</p>
+</footer>
+
+<!-- MUSIK -->
+<audio id="lagu" loop>
+<source src="musik.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" onclick="musik()">🎵 Musik</button>
+
+<script>
+function darkMode(){
+document.body.classList.toggle("dark");
+document.querySelector(".mode").textContent=
+document.body.classList.contains("dark")?"☀️":"🌙";
+}
+
+const lagu=document.getElementById("lagu");
+let bermain=false;
+
+function musik(){
+if(!bermain){
+lagu.play().then(()=>{
+bermain=true;
+document.querySelector(".music").textContent="⏸️ Pause";
+}).catch(()=>{
+alert("Pastikan file musik.mp3 tersedia.");
+});
+}else{
+lagu.pause();
+bermain=false;
+document.querySelector(".music").textContent="🎵 Musik";
+}
+}
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+},{threshold:.12});
+
+document.querySelectorAll(".section").forEach(section=>{
+observer.observe(section);
+});
+</script>
+
+</body>
+</html>
